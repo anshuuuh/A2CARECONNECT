@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A2CareConnect - Your Healthcare Partner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white font-sofia-pro">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16 sm:py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 data-id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Find & Book The Best Doctors Near You
+          </h1>
+          <p data-id="hero-subtitle" class="text-lg sm:text-xl mb-8 opacity-90">
+            Book appointments with verified doctors, get online consultations, and manage your health records all in one place.
+          </p>
+          <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
+            <button data-id="book-appointment-btn" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 w-full sm:w-auto">
+              Book Appointment
+            </button>
+            <button data-id="online-consultation-btn" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 w-full sm:w-auto">
+              Online Consultation
+            </button>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <img data-id="hero-image" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Healthcare professionals" class="rounded-lg shadow-xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-lg p-6 -mt-20 relative z-10">
+        <h2 data-id="search-title" class="text-2xl font-bold text-center mb-6">Find Doctors by Specialty</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="relative">
+            <select data-id="specialty-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <option>Select Specialty</option>
+              <option>Cardiologist</option>
+              <option>Dermatologist</option>
+              <option>Neurologist</option>
+              <option>Orthopedic</option>
+              <option>Pediatrician</option>
+              <option>Psychiatrist</option>
+            </select>
+          </div>
+          <div class="relative">
+            <input data-id="location-input" type="text" placeholder="Enter Location" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          </div>
+          <div class="relative">
+            <input data-id="insurance-input" type="text" placeholder="Insurance (Optional)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          </div>
+          <button data-id="search-doctors-btn" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+            <i data-lucide="search" class="w-5 h-5 mr-2"></i>
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 data-id="services-title" class="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div data-id="service-consultation" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="video" class="w-8 h-8 text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Online Consultation</h3>
+          <p class="text-gray-600">Get instant medical advice from qualified doctors via video call</p>
+        </div>
+        <div data-id="service-appointment" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="calendar" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Book Appointments</h3>
+          <p class="text-gray-600">Schedule appointments with verified doctors at your convenience</p>
+        </div>
+        <div data-id="service-records" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="file-text" class="w-8 h-8 text-purple-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Health Records</h3>
+          <p class="text-gray-600">Securely store and manage all your medical records online</p>
+        </div>
+        <div data-id="service-pharmacy" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="pill" class="w-8 h-8 text-red-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Online Pharmacy</h3>
+          <p class="text-gray-600">Order medicines online and get them delivered to your doorstep</p>
+        </div>
+        <div data-id="service-lab" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="activity" class="w-8 h-8 text-yellow-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Lab Tests</h3>
+          <p class="text-gray-600">Book lab tests and diagnostic services at discounted rates</p>
+        </div>
+        <div data-id="service-emergency" class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="phone-call" class="w-8 h-8 text-orange-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Emergency Care</h3>
+          <p class="text-gray-600">24/7 emergency consultation and ambulance services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Doctors Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 data-id="doctors-title" class="text-3xl font-bold text-center mb-12">Top Rated Doctors</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div data-id="doctor-card-1" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Smith" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. Sarah Smith</h3>
+              <p class="text-blue-600">Cardiologist</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.9</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">15+ years experience | Apollo Hospital</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Book Now</button>
+            <button class="flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition duration-300">View Profile</button>
+          </div>
+        </div>
+        <div data-id="doctor-card-2" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Johnson" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. Michael Johnson</h3>
+              <p class="text-blue-600">Dermatologist</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.8</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">12+ years experience | Max Hospital</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Book Now</button>
+            <button class="flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition duration-300">View Profile</button>
+          </div>
+        </div>
+        <div data-id="doctor-card-3" class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1594824804732-ca8db7536a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Patel" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. Priya Patel</h3>
+              <p class="text-blue-600">Pediatrician</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.9</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">10+ years experience | Fortis Hospital</p>
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">Book Now</button>
+            <button class="flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition duration-300">View Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a data-id="view-all-doctors" href="doctors.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+          View All Doctors
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 data-id="features-title" class="text-3xl font-bold text-center mb-12">Why Choose A2CareConnect?</h2>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img data-id="features-image" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Healthcare technology" class="rounded-xl shadow-lg">
+        </div>
+        <div>
+          <div data-id="feature-1" class="flex items-start mb-6">
+            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+              <i data-lucide="shield-check" class="w-6 h-6 text-blue-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Verified Doctors</h3>
+              <p class="text-gray-600">All our doctors are verified and have valid medical licenses</p>
+            </div>
+          </div>
+          <div data-id="feature-2" class="flex items-start mb-6">
+            <div class="bg-green-100 p-3 rounded-lg mr-4">
+              <i data-lucide="clock" class="w-6 h-6 text-green-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">24/7 Availability</h3>
+              <p class="text-gray-600">Book appointments anytime, anywhere with our 24/7 service</p>
+            </div>
+          </div>
+          <div data-id="feature-3" class="flex items-start mb-6">
+            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+              <i data-lucide="lock" class="w-6 h-6 text-purple-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Secure & Private</h3>
+              <p class="text-gray-600">Your health data is encrypted and completely secure</p>
+            </div>
+          </div>
+          <div data-id="feature-4" class="flex items-start">
+            <div class="bg-orange-100 p-3 rounded-lg mr-4">
+              <i data-lucide="heart" class="w-6 h-6 text-orange-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Affordable Care</h3>
+              <p class="text-gray-600">Quality healthcare at affordable prices for everyone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-blue-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 data-id="cta-title" class="text-3xl font-bold mb-4">Ready to Take Care of Your Health?</h2>
+      <p data-id="cta-subtitle" class="text-xl mb-8 opacity-90">Join thousands of satisfied patients who trust A2CareConnect</p>
+      <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex justify-center">
+        <button data-id="get-started-btn" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+          Get Started Today
+        </button>
+        <a data-id="download-app-btn" href="#" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 inline-block">
+          Download Mobile App
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+
+    // Add interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      // Search functionality
+      const searchBtn = document.querySelector('[data-id="search-doctors-btn"]');
+      const specialtySelect = document.querySelector('[data-id="specialty-select"]');
+      const locationInput = document.querySelector('[data-id="location-input"]');
+
+      searchBtn.addEventListener('click', function() {
+        const specialty = specialtySelect.value;
+        const location = locationInput.value;
+        
+        if (specialty === 'Select Specialty') {
+          alert('Please select a specialty');
+          return;
+        }
+        
+        if (!location.trim()) {
+          alert('Please enter a location');
+          return;
+        }
+
+        // Redirect to doctors page with search parameters
+        window.location.href = `doctors.html?specialty=${encodeURIComponent(specialty)}&location=${encodeURIComponent(location)}`;
+      });
+
+      // Hero CTA buttons
+      document.querySelector('[data-id="book-appointment-btn"]').addEventListener('click', function() {
+        window.location.href = 'doctors.html';
+      });
+
+      document.querySelector('[data-id="online-consultation-btn"]').addEventListener('click', function() {
+        window.location.href = 'consultation.html';
+      });
+
+      // Get started button
+      document.querySelector('[data-id="get-started-btn"]').addEventListener('click', function() {
+        window.location.href = 'register.html';
+      });
+    });
+  </script>
+</body>
+</html>

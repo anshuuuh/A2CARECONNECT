@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Consultation - A2CareConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 font-sofia-pro">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Page Header -->
+  <section class="bg-green-600 text-white py-12">
+    <div class="container mx-auto px-4">
+      <h1 data-id="page-title" class="text-3xl font-bold mb-4">Online Consultation</h1>
+      <p data-id="page-subtitle" class="text-lg opacity-90">Get instant medical advice from qualified doctors via video call</p>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 data-id="how-it-works-title" class="text-3xl font-bold text-center mb-12">How Online Consultation Works</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div data-id="step-1" class="text-center">
+          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Choose Doctor</h3>
+          <p class="text-gray-600">Select from our panel of verified doctors available for consultation</p>
+        </div>
+        <div data-id="step-2" class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-green-600">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Book Slot</h3>
+          <p class="text-gray-600">Choose your preferred time slot and make secure payment</p>
+        </div>
+        <div data-id="step-3" class="text-center">
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-purple-600">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Start Consultation</h3>
+          <p class="text-gray-600">Connect via video call and get your medical consultation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Available Doctors -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 data-id="available-doctors-title" class="text-3xl font-bold text-center mb-12">Available for Online Consultation</h2>
+      
+      <!-- Specialty Filter -->
+      <div class="flex justify-center mb-8">
+        <select data-id="consultation-specialty-filter" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 min-w-64">
+          <option value="">All Specialties</option>
+          <option value="general">General Physician</option>
+          <option value="dermatologist">Dermatologist</option>
+          <option value="psychiatrist">Psychiatrist</option>
+          <option value="pediatrician">Pediatrician</option>
+          <option value="gynecologist">Gynecologist</option>
+        </select>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Doctor 1 -->
+        <div data-id="consultation-doctor-1" class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Amanda Wilson" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. Amanda Wilson</h3>
+              <p class="text-green-600">General Physician</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.9</span>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <p>• 12+ years experience</p>
+            <p>• 500+ consultations</p>
+            <p>• Available now</p>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-2xl font-bold text-green-600">₹399</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Online</span>
+          </div>
+          <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300">
+            Start Consultation
+          </button>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div data-id="consultation-doctor-2" class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Lisa Chen" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. Lisa Chen</h3>
+              <p class="text-green-600">Dermatologist</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <p>• 8+ years experience</p>
+            <p>• 300+ consultations</p>
+            <p>• Available in 30 min</p>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-2xl font-bold text-green-600">₹599</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Online</span>
+          </div>
+          <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300">
+            Start Consultation
+          </button>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div data-id="consultation-doctor-3" class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. James Rodriguez" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h3 class="font-bold text-lg">Dr. James Rodriguez</h3>
+              <p class="text-green-600">Psychiatrist</p>
+              <div class="flex items-center text-yellow-500">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <span class="text-gray-600 ml-2">4.7</span>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <p>• 15+ years experience</p>
+            <p>• 750+ consultations</p>
+            <p>• Available now</p>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-2xl font-bold text-green-600">₹799</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Online</span>
+          </div>
+          <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300">
+            Start Consultation
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-12 bg-green-50">
+    <div class="container mx-auto px-4">
+      <h2 data-id="benefits-title" class="text-3xl font-bold text-center mb-12">Why Choose Online Consultation?</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-id="benefit-1" class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="clock" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Save Time</h3>
+          <p class="text-gray-600">No travel, no waiting rooms. Get consultation from home</p>
+        </div>
+        <div data-id="benefit-2" class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Safe & Secure</h3>
+          <p class="text-gray-600">HIPAA compliant platform with end-to-end encryption</p>
+        </div>
+        <div data-id="benefit-3" class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="dollar-sign" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Affordable</h3>
+          <p class="text-gray-600">Consultation fees starting from just ₹299</p>
+        </div>
+        <div data-id="benefit-4" class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="file-text" class="w-8 h-8 text-green-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Digital Records</h3>
+          <p class="text-gray-600">Get digital prescriptions and maintain health records</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Consultation -->
+  <section class="py-12 bg-red-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 data-id="emergency-title" class="text-3xl font-bold mb-4">Need Emergency Consultation?</h2>
+      <p data-id="emergency-subtitle" class="text-xl mb-8 opacity-90">Get immediate medical attention 24/7</p>
+      <button data-id="emergency-consultation-btn" class="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition duration-300">
+        <i data-lucide="phone-call" class="w-6 h-6 inline mr-2"></i>
+        Start Emergency Consultation
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+
+    // Add interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      // Start consultation buttons
+      document.querySelectorAll('button').forEach(btn => {
+        if (btn.textContent.includes('Start Consultation')) {
+          btn.addEventListener('click', function() {
+            if (btn.textContent.includes('Emergency')) {
+              alert('Connecting you to emergency consultation... (This would initiate emergency video call)');
+            } else {
+              alert('Starting consultation... (This would open video consultation interface)');
+            }
+          });
+        }
+      });
+
+      // Specialty filter
+      document.querySelector('[data-id="consultation-specialty-filter"]').addEventListener('change', function() {
+        // In a real app, this would filter the available doctors
+        console.log('Filtering doctors by specialty:', this.value);
+      });
+    });
+  </script>
+</body>
+</html>

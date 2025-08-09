@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Doctors - A2CareConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 font-sofia-pro">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Page Header -->
+  <section class="bg-blue-600 text-white py-12">
+    <div class="container mx-auto px-4">
+      <h1 data-id="page-title" class="text-3xl font-bold mb-4">Find Doctors</h1>
+      <p data-id="page-subtitle" class="text-lg opacity-90">Book appointments with verified doctors near you</p>
+    </div>
+  </section>
+
+  <!-- Search Filters -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Specialty</label>
+            <select data-id="specialty-filter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <option value="">All Specialties</option>
+              <option value="cardiologist">Cardiologist</option>
+              <option value="dermatologist">Dermatologist</option>
+              <option value="neurologist">Neurologist</option>
+              <option value="orthopedic">Orthopedic</option>
+              <option value="pediatrician">Pediatrician</option>
+              <option value="psychiatrist">Psychiatrist</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+            <input data-id="location-filter" type="text" placeholder="Enter city or area" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Experience</label>
+            <select data-id="experience-filter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <option value="">Any Experience</option>
+              <option value="5+">5+ years</option>
+              <option value="10+">10+ years</option>
+              <option value="15+">15+ years</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Consultation Fee</label>
+            <select data-id="fee-filter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <option value="">Any Fee</option>
+              <option value="0-500">₹0 - ₹500</option>
+              <option value="500-1000">₹500 - ₹1000</option>
+              <option value="1000+">₹1000+</option>
+            </select>
+          </div>
+          <div class="flex items-end">
+            <button data-id="apply-filters-btn" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300">
+              Apply Filters
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Header -->
+      <div class="flex justify-between items-center mb-6">
+        <h2 data-id="results-count" class="text-xl font-bold">24 doctors found</h2>
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600">Sort by:</span>
+          <select data-id="sort-filter" class="p-2 border border-gray-300 rounded-lg">
+            <option value="rating">Rating</option>
+            <option value="experience">Experience</option>
+            <option value="fee">Consultation Fee</option>
+            <option value="availability">Availability</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Doctor Cards -->
+      <div class="space-y-6">
+        <!-- Doctor Card 1 -->
+        <div data-id="doctor-card-sarah" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div class="flex flex-col lg:flex-row lg:items-center">
+            <div class="flex items-center mb-4 lg:mb-0 lg:flex-1">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Dr. Sarah Smith" class="w-20 h-20 rounded-full mr-4">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800">Dr. Sarah Smith</h3>
+                <p class="text-blue-600 font-medium">Cardiologist</p>
+                <p class="text-gray-600 text-sm">MBBS, MD Cardiology</p>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-500 mr-2">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <span class="text-gray-600 text-sm">4.9 (120 reviews)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="lg:flex-1 lg:mx-8">
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="text-gray-600">Experience</p>
+                  <p class="font-medium">15+ years</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Consultation Fee</p>
+                  <p class="font-medium">₹800</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Hospital</p>
+                  <p class="font-medium">Apollo Hospital</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Next Available</p>
+                  <p class="font-medium text-green-600">Today 3:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 lg:flex-shrink-0">
+              <div class="flex flex-col space-y-2">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                  Book Appointment
+                </button>
+                <button class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition duration-300">
+                  View Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor Card 2 -->
+        <div data-id="doctor-card-michael" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div class="flex flex-col lg:flex-row lg:items-center">
+            <div class="flex items-center mb-4 lg:mb-0 lg:flex-1">
+              <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Dr. Michael Johnson" class="w-20 h-20 rounded-full mr-4">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800">Dr. Michael Johnson</h3>
+                <p class="text-blue-600 font-medium">Dermatologist</p>
+                <p class="text-gray-600 text-sm">MBBS, MD Dermatology</p>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-500 mr-2">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <span class="text-gray-600 text-sm">4.8 (98 reviews)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="lg:flex-1 lg:mx-8">
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="text-gray-600">Experience</p>
+                  <p class="font-medium">12+ years</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Consultation Fee</p>
+                  <p class="font-medium">₹600</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Hospital</p>
+                  <p class="font-medium">Max Hospital</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Next Available</p>
+                  <p class="font-medium text-green-600">Tomorrow 10:00 AM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 lg:flex-shrink-0">
+              <div class="flex flex-col space-y-2">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                  Book Appointment
+                </button>
+                <button class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition duration-300">
+                  View Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor Card 3 -->
+        <div data-id="doctor-card-priya" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <div class="flex flex-col lg:flex-row lg:items-center">
+            <div class="flex items-center mb-4 lg:mb-0 lg:flex-1">
+              <img src="https://images.unsplash.com/photo-1594824804732-ca8db7536a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Dr. Priya Patel" class="w-20 h-20 rounded-full mr-4">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800">Dr. Priya Patel</h3>
+                <p class="text-blue-600 font-medium">Pediatrician</p>
+                <p class="text-gray-600 text-sm">MBBS, MD Pediatrics</p>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-500 mr-2">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <span class="text-gray-600 text-sm">4.9 (156 reviews)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="lg:flex-1 lg:mx-8">
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="text-gray-600">Experience</p>
+                  <p class="font-medium">10+ years</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Consultation Fee</p>
+                  <p class="font-medium">₹500</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Hospital</p>
+                  <p class="font-medium">Fortis Hospital</p>
+                </div>
+                <div>
+                  <p class="text-gray-600">Next Available</p>
+                  <p class="font-medium text-green-600">Today 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 lg:mt-0 lg:flex-shrink-0">
+              <div class="flex flex-col space-y-2">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                  Book Appointment
+                </button>
+                <button class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition duration-300">
+                  View Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center mt-8">
+        <div class="flex space-x-2">
+          <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300">Previous</button>
+          <button class="px-4 py-2 bg-blue-600 text-white rounded-lg">1</button>
+          <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300">2</button>
+          <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300">3</button>
+          <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+
+    // Get URL parameters for pre-filled search
+    const urlParams = new URLSearchParams(window.location.search);
+    const specialty = urlParams.get('specialty');
+    const location = urlParams.get('location');
+
+    if (specialty) {
+      document.querySelector('[data-id="specialty-filter"]').value = specialty.toLowerCase();
+    }
+    if (location) {
+      document.querySelector('[data-id="location-filter"]').value = location;
+    }
+
+    // Filter functionality
+    document.querySelector('[data-id="apply-filters-btn"]').addEventListener('click', function() {
+      // In a real app, this would filter the doctors list
+      alert('Filters applied! (This would filter the doctors list in a real application)');
+    });
+
+    // Book appointment buttons
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent === 'Book Appointment') {
+        btn.addEventListener('click', function() {
+          alert('Booking appointment... (This would open the appointment booking flow)');
+        });
+      }
+      if (btn.textContent === 'View Profile') {
+        btn.addEventListener('click', function() {
+          alert('Opening doctor profile... (This would show detailed doctor information)');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
