@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - A2CareConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * { font-family: "sofia-pro", sans-serif; }
+    .admin-tab.active { @apply bg-blue-100 text-blue-700 border-r-2 border-blue-500; }
+    .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .chart-bar { background: linear-gradient(to top, #3B82F6, #60A5FA); }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Admin Header -->
+  <header class="bg-white shadow-sm border-b" data-id="admin-header">
+    <div class="flex items-center justify-between px-6 py-4">
+      <div class="flex items-center space-x-4" data-id="admin-logo-section">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=40&h=40&fit=crop" 
+             alt="A2CareConnect Logo" 
+             class="w-10 h-10 rounded-lg" 
+             data-id="admin-logo">
+        <div>
+          <h1 class="text-xl font-bold text-gray-900" data-id="admin-title">A2CareConnect</h1>
+          <p class="text-sm text-gray-500" data-id="admin-subtitle">Admin Panel</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-4" data-id="admin-header-actions">
+        <button class="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors" data-id="notifications-btn">
+          <i data-lucide="bell" class="w-5 h-5"></i>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" data-id="notification-dot"></span>
+        </button>
+        
+        <div class="flex items-center space-x-3" data-id="admin-profile-section">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" 
+               alt="Admin Avatar" 
+               class="w-8 h-8 rounded-full" 
+               data-id="admin-avatar">
+          <div class="hidden sm:block" data-id="admin-profile-info">
+            <p class="text-sm font-medium text-gray-900">Admin User</p>
+            <p class="text-xs text-gray-500">Super Admin</p>
+          </div>
+          <button class="p-1 hover:bg-gray-100 rounded transition-colors" data-id="admin-profile-menu">
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-sm border-r" data-id="admin-sidebar">
+      <nav class="p-4" data-id="admin-navigation">
+        <div class="space-y-2" data-id="admin-nav-items">
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors active" 
+                  data-tab="dashboard" data-id="nav-dashboard">
+            <i data-lucide="layout-dashboard" class="w-5 h-5 inline mr-3"></i>
+            Dashboard
+          </button>
+          
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors" 
+                  data-tab="users" data-id="nav-users">
+            <i data-lucide="users" class="w-5 h-5 inline mr-3"></i>
+            Users Management
+          </button>
+          
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors" 
+                  data-tab="doctors" data-id="nav-doctors">
+            <i data-lucide="user-check" class="w-5 h-5 inline mr-3"></i>
+            Doctors Management
+          </button>
+          
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors" 
+                  data-tab="appointments" data-id="nav-appointments">
+            <i data-lucide="calendar" class="w-5 h-5 inline mr-3"></i>
+            Appointments
+          </button>
+          
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors" 
+                  data-tab="analytics" data-id="nav-analytics">
+            <i data-lucide="bar-chart" class="w-5 h-5 inline mr-3"></i>
+            Analytics
+          </button>
+          
+          <button class="admin-tab w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors" 
+                  data-tab="settings" data-id="nav-settings">
+            <i data-lucide="settings" class="w-5 h-5 inline mr-3"></i>
+            System Settings
+          </button>
+        </div>
+        
+        <hr class="my-6">
+        
+        <div class="space-y-2" data-id="admin-nav-secondary">
+          <button class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-600" data-id="nav-help">
+            <i data-lucide="help-circle" class="w-5 h-5 inline mr-3"></i>
+            Help & Support
+          </button>
+          
+          <button class="w-full text-left px-4 py-3 rounded-lg hover:bg-red-100 hover:text-red-700 transition-colors text-gray-600" data-id="nav-logout">
+            <i data-lucide="log-out" class="w-5 h-5 inline mr-3"></i>
+            Logout
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-6" data-id="admin-main-content">
+      <!-- Dashboard Tab -->
+      <div id="dashboard-content" class="tab-content fade-in" data-id="dashboard-content">
+        <div class="mb-8" data-id="dashboard-header">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2" data-id="dashboard-title">Dashboard Overview</h2>
+          <p class="text-gray-600" data-id="dashboard-subtitle">Welcome back! Here's what's happening on A2CareConnect today.</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" data-id="stats-cards">
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="total-users-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-gray-600">Total Users</p>
+                <p class="text-2xl font-bold text-gray-900">12,847</p>
+                <p class="text-sm text-green-600 mt-1">
+                  <i data-lucide="trending-up" class="w-4 h-4 inline"></i>
+                  +12.5% from last month
+                </p>
+              </div>
+              <div class="p-3 bg-blue-100 rounded-lg">
+                <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="active-doctors-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-gray-600">Active Doctors</p>
+                <p class="text-2xl font-bold text-gray-900">1,256</p>
+                <p class="text-sm text-green-600 mt-1">
+                  <i data-lucide="trending-up" class="w-4 h-4 inline"></i>
+                  +8.2% from last month
+                </p>
+              </div>
+              <div class="p-3 bg-green-100 rounded-lg">
+                <i data-lucide="user-check" class="w-6 h-6 text-green-600"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="appointments-today-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-gray-600">Today's Appointments</p>
+                <p class="text-2xl font-bold text-gray-900">234</p>
+                <p class="text-sm text-orange-600 mt-1">
+                  <i data-lucide="clock" class="w-4 h-4 inline"></i>
+                  42 pending confirmations
+                </p>
+              </div>
+              <div class="p-3 bg-orange-100 rounded-lg">
+                <i data-lucide="calendar" class="w-6 h-6 text-orange-600"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="revenue-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-gray-600">Monthly Revenue</p>
+                <p class="text-2xl font-bold text-gray-900">$89,247</p>
+                <p class="text-sm text-green-600 mt-1">
+                  <i data-lucide="trending-up" class="w-4 h-4 inline"></i>
+                  +15.3% from last month
+                </p>
+              </div>
+              <div class="p-3 bg-purple-100 rounded-lg">
+                <i data-lucide="dollar-sign" class="w-6 h-6 text-purple-600"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8" data-id="charts-section">
+          <!-- User Growth Chart -->
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="user-growth-chart">
+            <h3 class="text-lg font-semibold mb-4">User Growth</h3>
+            <div class="h-64 flex items-end justify-between space-x-2" data-id="user-growth-bars">
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 60%"></div>
+                <span class="text-xs text-gray-500 mt-2">Jan</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 80%"></div>
+                <span class="text-xs text-gray-500 mt-2">Feb</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 70%"></div>
+                <span class="text-xs text-gray-500 mt-2">Mar</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 90%"></div>
+                <span class="text-xs text-gray-500 mt-2">Apr</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 85%"></div>
+                <span class="text-xs text-gray-500 mt-2">May</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="chart-bar w-8 rounded-t" style="height: 100%"></div>
+                <span class="text-xs text-gray-500 mt-2">Jun</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="recent-activity">
+            <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+            <div class="space-y-4" data-id="activity-list">
+              <div class="flex items-center space-x-3" data-id="activity-item">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="user-plus" class="w-4 h-4 text-green-600"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">New doctor registered</p>
+                  <p class="text-xs text-gray-500">Dr. Sarah Johnson joined as Cardiologist</p>
+                </div>
+                <span class="text-xs text-gray-400">2m ago</span>
+              </div>
+              
+              <div class="flex items-center space-x-3" data-id="activity-item-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="calendar-check" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Appointment completed</p>
+                  <p class="text-xs text-gray-500">Video consultation with Dr. Mike Chen</p>
+                </div>
+                <span class="text-xs text-gray-400">5m ago</span>
+              </div>
+              
+              <div class="flex items-center space-x-3" data-id="activity-item-3">
+                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="alert-circle" class="w-4 h-4 text-orange-600"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">System alert</p>
+                  <p class="text-xs text-gray-500">Server maintenance scheduled for tonight</p>
+                </div>
+                <span class="text-xs text-gray-400">10m ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Management Tab -->
+      <div id="users-content" class="tab-content hidden" data-id="users-content">
+        <div class="mb-6" data-id="users-header">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900" data-id="users-title">Users Management</h2>
+              <p class="text-gray-600" data-id="users-subtitle">Manage all registered users on the platform</p>
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-id="add-user-btn">
+              <i data-lucide="user-plus" class="w-4 h-4 inline mr-2"></i>
+              Add New User
+            </button>
+          </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="bg-white rounded-lg shadow-sm border overflow-hidden" data-id="users-table-container">
+          <div class="p-4 border-b bg-gray-50" data-id="users-table-header">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+              <div class="flex space-x-2" data-id="users-filters">
+                <select class="px-3 py-2 border rounded-lg text-sm" data-id="user-status-filter">
+                  <option>All Users</option>
+                  <option>Active</option>
+                  <option>Inactive</option>
+                  <option>Suspended</option>
+                </select>
+              </div>
+              <div class="relative" data-id="users-search">
+                <input type="text" placeholder="Search users..." 
+                       class="pl-10 pr-4 py-2 border rounded-lg text-sm w-full sm:w-64" 
+                       data-id="users-search-input">
+                <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="overflow-x-auto" data-id="users-table">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Joined</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200" data-id="users-table-body">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="User">
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">Emma Wilson</div>
+                        <div class="text-sm text-gray-500">emma@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Patient</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dec 15, 2024</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                    <button class="text-red-600 hover:text-red-900">Suspend</button>
+                  </td>
+                </tr>
+                <!-- More user rows would go here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctors Management Tab -->
+      <div id="doctors-content" class="tab-content hidden" data-id="doctors-content">
+        <div class="mb-6" data-id="doctors-header">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900" data-id="doctors-title">Doctors Management</h2>
+              <p class="text-gray-600" data-id="doctors-subtitle">Manage doctor profiles and verify credentials</p>
+            </div>
+            <div class="flex space-x-2" data-id="doctors-actions">
+              <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors" data-id="verify-pending-btn">
+                <i data-lucide="check-circle" class="w-4 h-4 inline mr-2"></i>
+                Verify Pending (5)
+              </button>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-id="add-doctor-btn">
+                <i data-lucide="user-plus" class="w-4 h-4 inline mr-2"></i>
+                Add Doctor
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-id="doctors-grid">
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="doctor-card">
+            <div class="flex items-center space-x-4 mb-4">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=60&h=60&fit=crop&crop=face" 
+                   alt="Doctor" class="w-15 h-15 rounded-full">
+              <div>
+                <h3 class="font-semibold text-gray-900">Dr. Sarah Johnson</h3>
+                <p class="text-sm text-gray-500">Cardiologist</p>
+                <div class="flex items-center mt-1">
+                  <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Verified</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-2 text-sm" data-id="doctor-details">
+              <p><span class="text-gray-500">Experience:</span> 15 years</p>
+              <p><span class="text-gray-500">Rating:</span> 4.9/5 (234 reviews)</p>
+              <p><span class="text-gray-500">Consultations:</span> 1,247</p>
+            </div>
+            
+            <div class="flex space-x-2 mt-4" data-id="doctor-actions">
+              <button class="flex-1 bg-blue-600 text-white py-2 px-3 rounded text-sm hover:bg-blue-700 transition-colors">
+                View Profile
+              </button>
+              <button class="px-3 py-2 border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors">
+                <i data-lucide="more-horizontal" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- More doctor cards would go here -->
+        </div>
+      </div>
+
+      <!-- Other tab contents would be implemented similarly -->
+      <div id="appointments-content" class="tab-content hidden" data-id="appointments-content">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Appointments Management</h2>
+        <p class="text-gray-600">Appointments management content would go here...</p>
+      </div>
+
+      <div id="analytics-content" class="tab-content hidden" data-id="analytics-content">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Analytics & Reports</h2>
+        <p class="text-gray-600">Analytics content would go here...</p>
+      </div>
+
+      <div id="settings-content" class="tab-content hidden" data-id="settings-content">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">System Settings</h2>
+        <p class="text-gray-600">System settings content would go here...</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    // Initialize icons
+    lucide.createIcons();
+    
+    // Tab functionality
+    const tabs = document.querySelectorAll('.admin-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Show target content
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('fade-in');
+        });
+        
+        const targetContent = document.getElementById(`${targetTab}-content`);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+          targetContent.classList.add('fade-in');
+        }
+      });
+    });
+    
+    // Search functionality
+    const searchInput = document.querySelector('[data-id="users-search-input"]');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        // Implement search filtering logic here
+        console.log('Searching for:', searchTerm);
+      });
+    }
+    
+    // Logout functionality
+    document.querySelector('[data-id="nav-logout"]')?.addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

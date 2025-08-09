@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - A2CareConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * { font-family: "sofia-pro", sans-serif; }
+    .profile-tab.active { @apply border-b-2 border-blue-500 text-blue-600; }
+    .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Profile Header -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16" data-id="profile-header">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+        <div class="relative" data-id="profile-avatar-container">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face" 
+               alt="Profile Avatar" 
+               class="w-32 h-32 rounded-full border-4 border-white shadow-lg" 
+               data-id="profile-avatar">
+          <button class="absolute bottom-0 right-0 bg-white text-blue-600 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors" 
+                  data-id="change-avatar-btn">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+          </button>
+        </div>
+        
+        <div class="text-center md:text-left" data-id="profile-info">
+          <h1 class="text-3xl font-bold mb-2" data-id="profile-name">Dr. Sarah Johnson</h1>
+          <p class="text-blue-100 text-lg mb-2" data-id="profile-specialty">Cardiologist | 15 years experience</p>
+          <p class="text-blue-200" data-id="profile-location">
+            <i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i>
+            New York, NY
+          </p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-4" data-id="profile-badges">
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm" data-id="verified-badge">
+              <i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i>
+              Verified Doctor
+            </span>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm" data-id="rating-badge">
+              <i data-lucide="star" class="w-4 h-4 inline mr-1"></i>
+              4.9 Rating
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Navigation Tabs -->
+  <div class="bg-white border-b sticky top-0 z-10" data-id="profile-tabs">
+    <div class="container mx-auto px-4">
+      <div class="flex space-x-8 overflow-x-auto">
+        <button class="profile-tab py-4 px-2 font-medium text-gray-500 hover:text-blue-600 transition-colors active whitespace-nowrap" 
+                data-tab="overview" data-id="tab-overview">
+          <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>
+          Overview
+        </button>
+        <button class="profile-tab py-4 px-2 font-medium text-gray-500 hover:text-blue-600 transition-colors whitespace-nowrap" 
+                data-tab="appointments" data-id="tab-appointments">
+          <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>
+          Appointments
+        </button>
+        <button class="profile-tab py-4 px-2 font-medium text-gray-500 hover:text-blue-600 transition-colors whitespace-nowrap" 
+                data-tab="medical-history" data-id="tab-medical-history">
+          <i data-lucide="file-text" class="w-4 h-4 inline mr-2"></i>
+          Medical History
+        </button>
+        <button class="profile-tab py-4 px-2 font-medium text-gray-500 hover:text-blue-600 transition-colors whitespace-nowrap" 
+                data-tab="settings" data-id="tab-settings">
+          <i data-lucide="settings" class="w-4 h-4 inline mr-2"></i>
+          Settings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Overview Tab -->
+    <div id="overview-content" class="tab-content fade-in" data-id="overview-content">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Personal Information -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="personal-info-card">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-semibold" data-id="personal-info-title">Personal Information</h2>
+              <button class="text-blue-600 hover:text-blue-700 font-medium" data-id="edit-personal-btn">
+                <i data-lucide="edit" class="w-4 h-4 inline mr-1"></i>
+                Edit
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-id="personal-info-grid">
+              <div data-id="full-name-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <p class="text-gray-900">Dr. Sarah Johnson</p>
+              </div>
+              <div data-id="email-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <p class="text-gray-900">sarah.johnson@email.com</p>
+              </div>
+              <div data-id="phone-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                <p class="text-gray-900">+1 (555) 123-4567</p>
+              </div>
+              <div data-id="date-of-birth-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                <p class="text-gray-900">March 15, 1985</p>
+              </div>
+              <div data-id="gender-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                <p class="text-gray-900">Female</p>
+              </div>
+              <div data-id="blood-group-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Blood Group</label>
+                <p class="text-gray-900">O+</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Information -->
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="professional-info-card">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-semibold" data-id="professional-info-title">Professional Information</h2>
+              <button class="text-blue-600 hover:text-blue-700 font-medium" data-id="edit-professional-btn">
+                <i data-lucide="edit" class="w-4 h-4 inline mr-1"></i>
+                Edit
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-id="professional-info-grid">
+              <div data-id="specialty-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Specialty</label>
+                <p class="text-gray-900">Cardiologist</p>
+              </div>
+              <div data-id="experience-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Experience</label>
+                <p class="text-gray-900">15 years</p>
+              </div>
+              <div data-id="license-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">License Number</label>
+                <p class="text-gray-900">MD-12345-NY</p>
+              </div>
+              <div data-id="hospital-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Primary Hospital</label>
+                <p class="text-gray-900">Manhattan Medical Center</p>
+              </div>
+              <div class="md:col-span-2" data-id="bio-field">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                <p class="text-gray-700">Experienced cardiologist specializing in interventional cardiology and heart disease prevention. Committed to providing comprehensive cardiac care with a patient-centered approach.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics & Quick Actions -->
+        <div class="space-y-6">
+          <!-- Statistics -->
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="statistics-card">
+            <h3 class="text-lg font-semibold mb-4" data-id="statistics-title">Statistics</h3>
+            <div class="space-y-4" data-id="statistics-list">
+              <div class="flex justify-between items-center" data-id="total-patients-stat">
+                <span class="text-gray-600">Total Patients</span>
+                <span class="font-semibold text-blue-600">1,247</span>
+              </div>
+              <div class="flex justify-between items-center" data-id="consultations-stat">
+                <span class="text-gray-600">Consultations</span>
+                <span class="font-semibold text-blue-600">856</span>
+              </div>
+              <div class="flex justify-between items-center" data-id="rating-stat">
+                <span class="text-gray-600">Average Rating</span>
+                <span class="font-semibold text-blue-600">4.9/5</span>
+              </div>
+              <div class="flex justify-between items-center" data-id="response-time-stat">
+                <span class="text-gray-600">Response Time</span>
+                <span class="font-semibold text-blue-600">~2 mins</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-lg shadow-sm border p-6" data-id="quick-actions-card">
+            <h3 class="text-lg font-semibold mb-4" data-id="quick-actions-title">Quick Actions</h3>
+            <div class="space-y-3" data-id="quick-actions-list">
+              <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors" data-id="view-schedule-btn">
+                <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>
+                View Schedule
+              </button>
+              <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors" data-id="update-availability-btn">
+                <i data-lucide="clock" class="w-4 h-4 inline mr-2"></i>
+                Update Availability
+              </button>
+              <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors" data-id="manage-fees-btn">
+                <i data-lucide="dollar-sign" class="w-4 h-4 inline mr-2"></i>
+                Manage Fees
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments Tab -->
+    <div id="appointments-content" class="tab-content hidden" data-id="appointments-content">
+      <div class="bg-white rounded-lg shadow-sm border overflow-hidden">
+        <div class="p-6 border-b">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <h2 class="text-xl font-semibold" data-id="appointments-title">My Appointments</h2>
+            <div class="flex space-x-2" data-id="appointment-filters">
+              <select class="px-3 py-2 border rounded-lg" data-id="appointment-filter-select">
+                <option>All Appointments</option>
+                <option>Upcoming</option>
+                <option>Completed</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="overflow-x-auto" data-id="appointments-table-container">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date & Time</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200" data-id="appointments-table-body">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Patient">
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">Emma Wilson</div>
+                      <div class="text-sm text-gray-500">emma@email.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  Dec 28, 2024<br>
+                  <span class="text-gray-500">10:00 AM</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Video Call</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Confirmed</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 mr-3">Start Call</button>
+                  <button class="text-gray-600 hover:text-gray-900">Reschedule</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Patient">
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">John Smith</div>
+                      <div class="text-sm text-gray-500">john@email.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  Dec 29, 2024<br>
+                  <span class="text-gray-500">2:30 PM</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">In-Person</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 mr-3">Confirm</button>
+                  <button class="text-gray-600 hover:text-gray-900">Cancel</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medical History Tab -->
+    <div id="medical-history-content" class="tab-content hidden" data-id="medical-history-content">
+      <div class="space-y-6">
+        <!-- Recent Records -->
+        <div class="bg-white rounded-lg shadow-sm border p-6" data-id="recent-records-card">
+          <h2 class="text-xl font-semibold mb-6" data-id="recent-records-title">Recent Medical Records</h2>
+          <div class="space-y-4" data-id="medical-records-list">
+            <div class="border rounded-lg p-4" data-id="medical-record-item">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-medium">Annual Health Checkup</h3>
+                  <p class="text-sm text-gray-500 mt-1">December 20, 2024</p>
+                  <p class="text-sm text-gray-700 mt-2">Comprehensive health examination including blood work and cardiovascular screening.</p>
+                </div>
+                <button class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                  <i data-lucide="download" class="w-4 h-4 inline mr-1"></i>
+                  Download
+                </button>
+              </div>
+            </div>
+            
+            <div class="border rounded-lg p-4" data-id="medical-record-item-2">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-medium">Cardiology Consultation</h3>
+                  <p class="text-sm text-gray-500 mt-1">November 15, 2024</p>
+                  <p class="text-sm text-gray-700 mt-2">Follow-up consultation for hypertension management.</p>
+                </div>
+                <button class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                  <i data-lucide="download" class="w-4 h-4 inline mr-1"></i>
+                  Download
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prescriptions -->
+        <div class="bg-white rounded-lg shadow-sm border p-6" data-id="prescriptions-card">
+          <h2 class="text-xl font-semibold mb-6" data-id="prescriptions-title">Active Prescriptions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="prescriptions-grid">
+            <div class="border rounded-lg p-4" data-id="prescription-item">
+              <h3 class="font-medium">Lisinopril 10mg</h3>
+              <p class="text-sm text-gray-500 mt-1">Prescribed on Dec 15, 2024</p>
+              <p class="text-sm text-gray-700 mt-2">Take once daily with food</p>
+              <span class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Active</span>
+            </div>
+            
+            <div class="border rounded-lg p-4" data-id="prescription-item-2">
+              <h3 class="font-medium">Metformin 500mg</h3>
+              <p class="text-sm text-gray-500 mt-1">Prescribed on Nov 20, 2024</p>
+              <p class="text-sm text-gray-700 mt-2">Take twice daily with meals</p>
+              <span class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settings-content" class="tab-content hidden" data-id="settings-content">
+      <div class="space-y-6">
+        <!-- Account Settings -->
+        <div class="bg-white rounded-lg shadow-sm border p-6" data-id="account-settings-card">
+          <h2 class="text-xl font-semibold mb-6" data-id="account-settings-title">Account Settings</h2>
+          <form class="space-y-6" data-id="account-settings-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div data-id="username-setting">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                       value="sarah.johnson" data-id="username-input">
+              </div>
+              <div data-id="email-setting">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                       value="sarah.johnson@email.com" data-id="email-input">
+              </div>
+            </div>
+            
+            <div data-id="password-change-section">
+              <h3 class="text-lg font-medium mb-4">Change Password</h3>
+              <div class="space-y-4">
+                <div data-id="current-password-field">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                  <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-id="current-password-input">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div data-id="new-password-field">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                    <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-id="new-password-input">
+                  </div>
+                  <div data-id="confirm-password-field">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                    <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" data-id="confirm-password-input">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex justify-end" data-id="save-settings-section">
+              <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-id="save-settings-btn">
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="bg-white rounded-lg shadow-sm border p-6" data-id="notification-settings-card">
+          <h2 class="text-xl font-semibold mb-6" data-id="notification-settings-title">Notification Settings</h2>
+          <div class="space-y-4" data-id="notification-settings-list">
+            <div class="flex items-center justify-between" data-id="email-notifications-setting">
+              <div>
+                <h3 class="font-medium">Email Notifications</h3>
+                <p class="text-sm text-gray-500">Receive appointment reminders and updates via email</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked data-id="email-notifications-toggle">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              </label>
+            </div>
+            
+            <div class="flex items-center justify-between" data-id="sms-notifications-setting">
+              <div>
+                <h3 class="font-medium">SMS Notifications</h3>
+                <p class="text-sm text-gray-500">Receive appointment reminders via SMS</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" data-id="sms-notifications-toggle">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+    
+    // Tab functionality
+    const tabs = document.querySelectorAll('.profile-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Show target content
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('fade-in');
+        });
+        
+        const targetContent = document.getElementById(`${targetTab}-content`);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+          targetContent.classList.add('fade-in');
+        }
+      });
+    });
+    
+    // Form handling
+    const accountForm = document.querySelector('[data-id="account-settings-form"]');
+    if (accountForm) {
+      accountForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Settings saved successfully!');
+      });
+    }
+    
+    // Quick action buttons
+    document.querySelector('[data-id="view-schedule-btn"]')?.addEventListener('click', () => {
+      // Switch to appointments tab
+      document.querySelector('[data-tab="appointments"]').click();
+    });
+  </script>
+</body>
+</html>
